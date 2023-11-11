@@ -1,0 +1,91 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+   <!-- Examples -->
+   <div class="row mb-5">
+      <div class="col-md-12 mb-3">
+         <div class="card h-100">
+            <div class="card-body">
+					
+               <h5 class="card-title">fillingstation Details</h5>
+			   <div class="float-right">
+			   		   <a href="<?php echo base_url();?>index.php/fillingstation/insert" class="btn btn-info"><i class="fa fa-pencil"></i> Add New fillingstation</a>
+			   </div>
+			   <br><br>
+               <table id="fillingstation" class="display nowrap" style="width:100%" >
+                  <thead class="thead-dark">
+                     <tr>
+                        <th>#</th>
+                        <th>Idfillingstation</th>
+<th>Fillingstation name</th>
+<th>Fillingstation address</th>
+<th>Numberoffueldespencers</th>
+<th>Capacityofpetroltank</th>
+<th>Capacityofdieseltank</th>
+<th>Capacityofsuperpetrol</th>
+<th>Capacityofsuperdiesel</th>
+<th>District</th>
+<th>Users idUsers</th>
+<th>Isapproved</th>
+<th>Approvedby</th>
+<th>Isdelete</th>
+
+                     </tr>
+                  </thead>
+                  <tbody>
+						<?php $i=1; foreach($fillingstation as $row) {?>
+						<tr>
+							<td><?=$i++?></td>
+                            <td><?=$row->idfillingstation;?></td>
+<td><?=$row->fillingstation_name;?></td>
+<td><?=$row->fillingstation_address;?></td>
+<td><?=$row->numberoffueldespencers;?></td>
+<td><?=$row->capacityofpetroltank;?></td>
+<td><?=$row->capacityofdieseltank;?></td>
+<td><?=$row->capacityofsuperpetrol;?></td>
+<td><?=$row->capacityofsuperdiesel;?></td>
+<td><?=$row->district;?></td>
+<td><?=$row->Users_idUsers;?></td>
+<td><?=$row->isapproved;?></td>
+<td><?=$row->approvedby;?></td>
+<td><?=$row->isdelete;?></td>
+
+							<td>
+								<a href="<?php echo base_url();?>index.php/fillingstation/edit/<?=$row->idfillingstation; ?>" class="btn btn-sm btn-primary">Edit</a>
+								<a href="<?php echo base_url();?>index.php/fillingstation/delete/<?=$row->idfillingstation; ?>" class="btn btn-sm btn-danger">Delete</a>
+							</td>
+						
+						</tr>
+						<?php } ?>
+                     				                      
+                    
+                  </tbody>
+               </table>
+			   <?php
+					 if($this->session->flashdata('message')) {?>
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<strong>Successfully Added </strong> 
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					<?php }					  
+					 ?>
+					<?php
+					 if($this->session->flashdata('error')){?>
+						<div class="alert alert-danger alert-dismissible fade show" role="alert">
+							<strong>Failed!</strong> 
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+					<?php }					  
+					 ?>
+               
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Examples -->
+</div>
+<script>   
+   new DataTable('#fillingstation', {
+   scrollX: true,
+   scrollY: 350
+   });
+   
+</script>
